@@ -1,0 +1,92 @@
+body {
+  background: #fbeff2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #5a3e3e;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+.envelope {
+  width: 240px;
+  height: 140px;
+  background: #e8a8a8;
+  margin: auto;
+  position: relative;
+  cursor: pointer; /* Makes element recognized as clickable on mobile */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+
+  /* Optional: improve finger-friendly tap */
+  touch-action: manipulation; /* Reduces default touch delays on mobile */
+  /* For extra large tap area, you can add padding; but envelope shape may distort */
+}
+
+.envelope::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-bottom: 80px solid #d67a7a;
+  top: -80px;
+  left: 0;
+  transition: top 0.5s;
+}
+
+.envelope.open::before {
+  top: 0;
+}
+
+.letter {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  transition: top 0.5s;
+}
+
+.envelope.open .letter {
+  top: 0;
+}
+
+.media-image {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.letter p {
+  font-size: 1.1em;
+  margin: 0.5rem 0;
+}
+
+#closeBtn {
+  padding: 8px 16px;
+  border: none;
+  background: #d67a7a;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hint {
+  margin-top: 12px;
+  font-size: 0.9em;
+  color: #7f5a5a;
+}
